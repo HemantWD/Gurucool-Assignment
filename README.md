@@ -12,3 +12,4 @@ npx create-expo-app -e with-router
 
 - [Expo Router: Docs](https://expo.github.io/router)
 - [Expo Router: Repo](https://github.com/expo/router)
+![Demo](https://github.com/HemantWD/Gurucool-Assignment/assets/115880634/ffba280c-a4f9-40da-93f3-ef72c4e0a2a7)
