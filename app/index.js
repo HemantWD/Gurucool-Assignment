@@ -5,6 +5,7 @@ import { Stack, useRouter } from "expo-router";
 import { COLORS, icons, images, SIZES } from "../constants";
 import { Quotes, ScreenHeaderBtn } from "../components";
 import ShareSaveButton from "../components/home/ShareSave/ShareSaveButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Home = () => {
   const router = useRouter();
@@ -25,7 +26,22 @@ const Home = () => {
     }
   };
 
-  const handleSavePress = async () => {};
+  const handleSavePress = async () => {
+    try {
+      if (currentQuote) {
+        await AsyncStorage.setItem(
+          "@saved_quote",
+          JSON.stringify(currentQuote)
+        );
+        Alert.alert("Save", "Quote saved successfully");
+      } else {
+        Alert.alert("Save", "No quote to save");
+      }
+    } catch (error) {
+      console.log("Save error", error);
+      Alert.alert("Save", "Error saving quote");
+    }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
